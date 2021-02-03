@@ -14,9 +14,7 @@ const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log(currentId);
     dispatch(getPosts());
-    //if (!currentId) dispatch(getPosts());
   }, [dispatch]);
 
   console.log("rendering App...");
