@@ -4,7 +4,6 @@ import { FETCH_ALL, CREATE, UPDATE, DELETE, LIKE_POST } from "../constants/actio
 const reducer = (posts = [], action) => {
   switch (action.type) {
     case FETCH_ALL: // fetching all the posts
-      console.log("fetch all");
       return action.payload;
     case CREATE:
       return [...posts, action.payload];

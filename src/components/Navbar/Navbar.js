@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { Link, useHistory, useLocation } from "react-router-dom";
 import { AppBar, Avatar, Typography, Toolbar, Button } from "@material-ui/core";
 import useStyles from "./styles.js";
+import decode from "jwt-decode";
 
 import memories from "../../images/memories.png";
 
@@ -12,12 +13,16 @@ const Navbar = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const location = useLocation();
-  console.log(user);
 
   useEffect(() => {
     const token = user?.token;
 
-    // JWT ...
+    // Check if the token is expired
+    if (token) {
+      const decodedToken = decode(token);
+
+      if (decodedToken.exp * 1000 < new Date().getTime()) logout();
+    }
 
     setUser(JSON.parse(localStorage.getItem("profile")));
   }, [location]);
