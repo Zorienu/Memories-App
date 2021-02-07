@@ -10,6 +10,7 @@ export default makeStyles((theme) => ({
     justifyContent: "space-between",
     alignItems: "center",
     padding: "10px 50px",
+    flexWrap: "wrap",
   },
   heading: {
     color: "rgba(0,183,255, 1)",
@@ -42,5 +43,17 @@ export default makeStyles((theme) => ({
   logout: {
     backgroundColor: "#5e35b1",
     color: "white",
+  },
+  [theme.breakpoints.down("sm")]: {
+    appBar: {
+      padding: "10px 20px",
+      justifyContent: "center",
+    },
+    heading: {
+      fontSize: "40px",
+    },
+    profile: {
+      alignItems: "center",
+    },
   },
 }));
